@@ -1,9 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <litepal>
+<!--文件名字固定，形式固定，位置固定，系统自动解析SAXxml-->
     <dbname value="cool_weather" />
-    <version value="1" />
+
+    <version value="2" />
+
     <list>
-        <mapping class="com.coolweather.android.db.Province" />
-        <mapping class="com.coolweather.android.db.City" />
-        <mapping class="com.coolweather.android.db.County" />
+        <mapping class="com.webbread.coolweather.db.Province" />
+        <mapping class="com.webbread.coolweather.db.City" />
+        <mapping class="com.webbread.coolweather.db.County" />
     </list>
+
 </litepal>
