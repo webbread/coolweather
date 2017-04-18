@@ -153,7 +153,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText(selectedCity.getCityName());
         backButton.setVisibility(View.VISIBLE);
         countyList = DataSupport.where("cityid = ?", String.valueOf(selectedCity.getId())).find(County.class);
-        Log.d(TAG, "queryCounties: ========================>"+String.valueOf(selectedCity.getId())+countyList.size());
+        Log.d(TAG, "queryCounties: ========AA================>"+String.valueOf(selectedCity.getId())+"-----"+countyList.size()+"====="+selectedCity.getCityName());
         if (countyList.size() > 0) {
             dataList.clear();
             for (County county : countyList) {
@@ -229,6 +229,7 @@ public class ChooseAreaFragment extends Fragment {
             progressDialog.setMessage("正在加载...");
             progressDialog.setCanceledOnTouchOutside(false);
         }
+        progressDialog.show();
     }
 
     /**

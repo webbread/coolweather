@@ -3,7 +3,7 @@
 <!--文件名字固定，形式固定，位置固定，系统自动解析SAXxml-->
     <dbname value="cool_weather" />
 
-    <version value="2" />
+    <version value="5" />
 
     <list>
         <mapping class="com.webbread.coolweather.db.Province" />
