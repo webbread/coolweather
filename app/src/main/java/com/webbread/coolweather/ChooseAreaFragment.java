@@ -54,6 +54,7 @@ public class ChooseAreaFragment extends Fragment {
     private City selectedCity;
     private int currentLevel; //选中级别
     private static final String TAG = "ChooseAreaFragment";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -83,10 +84,18 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 } else if (currentLevel == LEVEL_COUNTY) {
                     String weatherId = countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                    intent.putExtra("weather_id", weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    //判断当前的页面选择不同的操作
+                    if (getActivity() instanceof MainActivity) {
+                        Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                        intent.putExtra("weather_id", weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    } else if (getActivity() instanceof WeatherActivity) {
+                        WeatherActivity activity = (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefreshLayout.setRefreshing((true));
+                        activity.requestWeather(weatherId);
+                    }
                 }
             }
         });
@@ -153,7 +162,7 @@ public class ChooseAreaFragment extends Fragment {
         titleText.setText(selectedCity.getCityName());
         backButton.setVisibility(View.VISIBLE);
         countyList = DataSupport.where("cityid = ?", String.valueOf(selectedCity.getId())).find(County.class);
-        Log.d(TAG, "queryCounties: ========AA================>"+String.valueOf(selectedCity.getId())+"-----"+countyList.size()+"====="+selectedCity.getCityName());
+        Log.d(TAG, "queryCounties: ========AA================>" + String.valueOf(selectedCity.getId()) + "-----" + countyList.size() + "=====" + selectedCity.getCityName());
         if (countyList.size() > 0) {
             dataList.clear();
             for (County county : countyList) {
