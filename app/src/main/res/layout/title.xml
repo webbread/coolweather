@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/back_down" />
+        android:background="@drawable/main_setting" />
     <!--头文件-->
     <TextView
         android:id="@+id/title_city"

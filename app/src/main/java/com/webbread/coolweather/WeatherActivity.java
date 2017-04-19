@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,8 +26,6 @@ import com.webbread.coolweather.gson.Weather;
 import com.webbread.coolweather.service.AutoUpdateService;
 import com.webbread.coolweather.util.HttpUtil;
 import com.webbread.coolweather.util.Utility;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
